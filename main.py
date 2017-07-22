@@ -1,6 +1,4 @@
 import sys
-import subprocess
-import cairosvg
 import pygame
 import switchPage
 import weather
