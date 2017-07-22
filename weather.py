@@ -1,5 +1,6 @@
 import os
 import time
+import datetime
 import requests
 import json
 import cairosvg
@@ -54,6 +55,20 @@ class Weather:
             pass
         try:
             svg = svg.replace("[[humidity]]", str(self.weather["main"]["humidity"]))
+        except Exception:
+            pass
+        try:
+            dawn = datetime.datetime.fromtimestamp(int(self.weather["sys"]["sunrise"])).strftime("%H:%M")
+            svg = svg.replace("[[dawn]]", dawn)
+        except Exception:
+            pass
+        try:
+            sunset = datetime.datetime.fromtimestamp(int(self.weather["sys"]["sunset"])).strftime("%H:%M")
+            svg = svg.replace("[[sunset]]", sunset)
+        except Exception:
+            pass
+        try:
+            svg = svg.replace("[[icon]]", self.weather["weather"][0]["icon"])
         except Exception:
             pass
         temp = open("images/temp_weather.svg", "w+")
