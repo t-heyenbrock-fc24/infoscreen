@@ -1,19 +1,26 @@
-import sys, pygame, switchPage
+import sys
+import subprocess
+import cairosvg
+import pygame
+import switchPage
+import weather
 
 pygame.init()
 
-size = width, height = 1280, 800
+size = width, height = 640, 800
 black = 0, 0, 0
 white = 255, 255, 255
 
-screen = pygame.display.set_mode(size, pygame.FULLSCREEN)
-
+screen = pygame.display.set_mode(size)
 font = pygame.font.SysFont('Helvetica', 30)
-textsurface = font.render("test", False, white)
-textrect = textsurface.get_rect()
 
-textrect.left = 50
-textrect.top = 50
+weatherimage = pygame.image.load("images/weather.png")
+weatherrect = weatherimage.get_rect()
+
+weatherrect.left = 50
+weatherrect.top = 50
+
+weather = weather.Weather(10)
 
 dummyrect = pygame.Rect(0, 0, 0, 0)
 
@@ -35,16 +42,18 @@ while 1:
                 if dummyrect.left % width == 0:
                     page = page - width
 
+    weather.update_current()
+
     speed = switchPage.get_speed(dummyrect.left, page, width, 100)
 
     dummyrect = dummyrect.move(speed)
-    textrect = textrect.move(speed)
+    weatherrect = weatherrect.move(speed)
 
     debugstring = str(speed[0]) + "," + str(speed[1]) + "\n" + str(dummyrect.left)
     debug = font.render(debugstring, False, white)
     debugrect = pygame.Rect(50, 500, 100, 100)
 
     screen.fill(black)
-    screen.blit(textsurface, textrect)
+    screen.blit(weatherimage, weatherrect)
     screen.blit(debug, debugrect)
     pygame.display.flip()
