@@ -2,13 +2,16 @@
 <svg height="190" version="1.2" width="340" xmlns="http://www.w3.org/2000/svg" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xlink="http://www.w3.org/1999/xlink" font-family="Helvetica Neue">
     <defs />
     <rect height="170" width="320" x="10" y="10" stroke-width="1.4" stroke="#ffffff" fill-opacity="0" />
-    <text fill="white" x="20" y="35" font-size="20px">W E T T E R - A K T U E L L</text>
-    <text fill="white" x="30" y="70">Tendenz: [[description]]</text>
-    <text fill="white" x="30" y="100">Temperatur: [[temp]]°</text>
-    <text fill="white" x="30" y="130">Luftfeuchtigkeit: [[humidity]]%</text>
+    <text fill="white" x="46" y="35" font-size="20px">W E T T E R - A K T U E L L</text>
+    <text fill="white" x="25" y="70">Tendenz:</text>
+    <text fill="white" x="100" y="70">[[description]]</text>
+    <text fill="white" x="25" y="100">Temperatur:</text>
+    <text fill="white" x="121" y="100">[[temp]]°</text>
+    <text fill="white" x="25" y="130">Luftfeuchtigkeit:</text>
+    <text fill="white" x="150" y="130">[[humidity]]%</text>
     <text fill="white" x="55" y="160">[[dawn]]</text>
     <text fill="white" x="135" y="160">[[sunset]]</text>
     <image x="30" y="145" width="20" height="20" xlink:href="../icons/dawn.svg" />
     <image x="110" y="145" width="20" height="20" xlink:href="../icons/sunset.svg" />
-    <image x="210" y="85" width="80" height="80" xlink:href="http://openweathermap.org/img/w/[[icon]].png" />
+    <image x="220" y="85" width="80" height="80" xlink:href="../icons/[[icon]].svg" />
 </svg>
