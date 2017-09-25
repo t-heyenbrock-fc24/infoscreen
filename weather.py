@@ -11,7 +11,6 @@ class Weather:
     api_key = os.getenv("OPEN_WEATHER_API_KEY")
     city_id = "6556317"
 
-
     # Constructor
     def __init__(self, throttle_time):
         self.last_update_current = 0.0

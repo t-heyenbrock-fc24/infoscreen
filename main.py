@@ -2,6 +2,7 @@ import sys
 import pygame
 import switchPage
 import weather
+import distance
 
 pygame.init()
 
@@ -18,7 +19,8 @@ weatherrect = weatherimage.get_rect()
 weatherrect.left = 50
 weatherrect.top = 50
 
-weather = weather.Weather(10)
+weather = weather.Weather(100)
+distance = distance.Distance(18, 24, 1)
 
 dummyrect = pygame.Rect(0, 0, 0, 0)
 
@@ -47,7 +49,7 @@ while 1:
     dummyrect = dummyrect.move(speed)
     weatherrect = weatherrect.move(speed)
 
-    debugstring = str(speed[0]) + "," + str(speed[1]) + "\n" + str(dummyrect.left)
+    debugstring = str(speed[0]) + "," + str(speed[1]) + "\n" + str(dummyrect.left) + "\n" + str(distance.get_distance())
     debug = font.render(debugstring, False, white)
     debugrect = pygame.Rect(50, 500, 100, 100)
 
